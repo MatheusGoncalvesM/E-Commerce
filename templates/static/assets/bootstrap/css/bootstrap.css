@@ -3372,7 +3372,11 @@ input[type="button"].btn-block {
   color: #6c757d; }
 
 .pagination {
-  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  margin: 0;
   padding-left: 0;
   list-style: none;
   border-radius: 0.25rem; }
