@@ -1,16 +1,33 @@
-from django.shortcuts import render
-from django.views.generic import ListView
+from django.shortcuts import redirect, reverse
+from django.views.generic import ListView, DetailView
 from django.views import View
-from django.http import HttpResponse
+# from django.http import HttpResponse
+from django.contrib import messages
 
-class Pagar(View):
-    def get(self, *args, **kwargs):
-        return HttpResponse('Pagar')
+from produto.models import Variacao
+from .models import Pedido, ItemPedido
 
-class FecharPedido(View):
-    def get(self, *args, **kwargs):
-        return HttpResponse('FecharPedido')
+from utils import utils
 
-class Detalhe(View):
+
+class Pagar( DetailView):
     def get(self, *args, **kwargs):
-        return HttpResponse('Detalhe')
+        ...
+
+
+class SalvarPedido(View):
+    def get(self, *args, **kwargs):
+        ...
+           
+
+
+class Detalhe(DetailView):
+    model = Pedido
+    context_object_name = 'pedido'
+    template_name = 'pedido/detalhe.html'
+    pk_url_kwarg = 'pk'
+
+
+class Lista(ListView):
+    def get(self, *args, **kwargs):
+        ...
